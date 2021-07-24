@@ -5,6 +5,8 @@ from django.urls import include, path
 from django.views import defaults as default_views
 from django.views.generic import TemplateView
 
+from ahms.users import views
+
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
     path(
@@ -15,6 +17,16 @@ urlpatterns = [
     # User management
     path("users/", include("ahms.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
+    path("appointment/", include("ahms.appointments.urls", namespace="appointments")),
+    path('accounts/signup/doctor', views.DoctorSignUpView.as_view(), name='doctor_signup'),
+    path('accounts/signup/nurse/', views.NurseSignUpView.as_view(), name='nurse_signup'),
+    path('accounts/signup/patient/', views.PatientSignUpView.as_view(), name='patient_signup'),
+    path('accounts/signup/patient/patient-profile-update',
+         views.PatientProfileUpdate.as_view(),
+         name='patient_profile_update'),
+    path('accounts/patient/patient-details',
+         views.PatientDetail.as_view(),
+         name="patient_detail")
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

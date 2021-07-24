@@ -38,6 +38,7 @@ class PatientStatus(models.Model):
         default="Normal", max_length=20)
     added = models.DateTimeField(auto_created=True)
 
+
 class Drugs(models.Model):
     name = models.CharField(verbose_name="Medication name", max_length=30)
     dose = models.CharField(verbose_name="Dosage", max_length=50)

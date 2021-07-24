@@ -36,7 +36,7 @@ class Patient(models.Model):
     )
     address = models.CharField(max_length=40)
     mobile = models.CharField(max_length=20, null=False)
-    symptoms = models.CharField(max_length=100, null=False)
+    # symptoms = models.CharField(max_length=100, null=False)
     status = models.BooleanField(default=False)
 
     @property
@@ -48,7 +48,7 @@ class Patient(models.Model):
         return self.user.id
 
     def __str__(self):
-        return self.user.name + " (" + self.symptoms + ")"
+        return f"self.user.name"
 
 
 ## Nurse ##
