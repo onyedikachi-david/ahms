@@ -1,0 +1,139 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+        <title>{% block title %}Awesome Hostel Management System{% endblock title %}</title>
+
+        <meta name="description" content="Hostel Management System Upgrade">
+        <meta name="author" content="Anyatonwu David Onyedikachi">
+
+        <!-- Open Graph Meta -->
+        <meta property="og:title" content="Dashmix - Bootstrap 4 Admin Template &amp; UI Framework">
+        <meta property="og:site_name" content="Dashmix">
+        <meta property="og:description" content="Dashmix - Bootstrap 4 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="">
+        <meta property="og:image" content="">
+
+        <!-- Icons -->
+        <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+        <link rel="shortcut icon" href="assets/media/favicons/favicon.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="assets/media/favicons/favicon-192x192.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/media/favicons/apple-touch-icon-180x180.png">
+        <!-- END Icons -->
+
+        <!-- Stylesheets -->
+        <!-- Fonts and Dashmix framework -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+        <link rel="stylesheet" id="css-main" href="{% static 'assets/css/dashmix.min.css'%}">
+
+        <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
+        <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/xwork.min.css"> -->
+        <link rel="stylesheet" id="css-theme" href="{% static 'assets/css/themes/xdream.min.css'%}">
+        <!-- END Stylesheets -->
+    </head>
+    <body>
+        <!-- Page Container -->
+        <div id="page-container" class="sidebar-o sidebar-dark side-scroll page-header-fixed main-content-boxed">
+
+            <!-- Sidebar -->
+          <!-- Include Sidebar -->
+          {% include "pages/sidebar.html" %}
+            <!-- END Sidebar -->
+
+            <!-- Header -->
+            <header id="page-header">
+                <!-- Header Content -->
+                <div class="content-header">
+                    <!-- Left Section -->
+                    <div>
+                        <!-- Toggle Sidebar -->
+                        <!-- Layout API, functionality initialized in Template._uiApiLayout()-->
+                        <button type="button" class="btn btn-dual d-lg-none" data-toggle="layout" data-action="sidebar_toggle">
+                            <i class="fa fa-fw fa-bars"></i>
+                        </button>
+                        <!-- END Toggle Sidebar -->
+
+                        <!-- Open Search Section -->
+                        <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                        <button type="button" class="btn btn-dual d-lg-none" data-toggle="layout" data-action="header_search_on">
+                            <i class="fa fa-fw fa-search"></i> <span class="ml-1 d-none d-sm-inline-block">Search..</span>
+                        </button>
+                        <!-- END Open Search Section -->
+
+                        <!-- Search form in larger screens -->
+                        <form class="d-none d-lg-inline-block" action="be_pages_generic_search.html" method="POST">
+                            <input type="text" class="form-control rounded-lg px-4" placeholder="Search.." id="page-header-search-input-full" name="page-header-search-input-full">
+                        </form>
+                        <!-- END Search form in larger screens -->
+                    </div>
+                    <!-- END Left Section -->
+
+                    <!-- Right Section -->
+                    <div>
+                        <!-- Notifications Dropdown -->
+                      {% include "pages/notifications.html" %}
+                        <!-- END Notifications Dropdown -->
+
+                        <!-- Shortcuts Dropdown -->
+                      {% include "pages/shortcuts-dropdown.html" %}
+                        <!-- END Shortcuts Dropdown -->
+                    </div>
+                    <!-- END Right Section -->
+                </div>
+                <!-- END Header Content -->
+
+                <!-- Header Search -->
+                <div id="page-header-search" class="overlay-header bg-white">
+                    <div class="content-header">
+                        <form class="w-100" action="be_pages_generic_search.html" method="POST">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                                    <button type="button" class="btn btn-danger" data-toggle="layout" data-action="header_search_off">
+                                        <i class="fa fa-fw fa-times-circle"></i>
+                                    </button>
+                                </div>
+                                <input type="text" class="form-control border-0" placeholder="Search Application.." id="page-header-search-input" name="page-header-search-input">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- END Header Search -->
+
+                <!-- Header Loader -->
+                <!-- Please check out the Loaders page under Components category to see examples of showing/hiding it -->
+                <div id="page-header-loader" class="overlay-header bg-primary-darker">
+                    <div class="content-header">
+                        <div class="w-100 text-center">
+                            <i class="fa fa-fw fa-2x fa-sun fa-spin text-white"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Header Loader -->
+            </header>
+            <!-- END Header -->
+
+            <!-- Main Container -->
+            <main id="main-container">
+
+                <!-- Page Content -->
+              {% include "pages/page_content.html" %}
+                <!-- END Page Content -->
+            </main>
+            <!-- END Main Container -->
+
+            <!-- Footer -->
+          {% include "pages/footer.html" %}
+            <!-- END Footer -->
+        </div>
+        <!-- END Page Container -->
+
+        <script src="{% static 'assets/js/dashmix.core.min.js'%}"></script>
+
+        <script src="{% static 'assets/js/dashmix.app.min.js'%}"></script>
+    </body>
+</html>

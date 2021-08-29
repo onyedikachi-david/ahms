@@ -1,6 +1,7 @@
 from django.contrib.auth import forms as admin_forms
 from django.contrib.auth import get_user_model
 from django.db import transaction
+from django.forms.models import ModelForm
 from django.utils.translation import gettext_lazy as _
 
 from ahms.users.models import Patient, Doctor, Nurse
@@ -62,3 +63,4 @@ class NurseSignUpForm(UserCreationForm):
         user.save()
         nurse = Nurse.objects.create(user=user)
         return user
+

@@ -30,7 +30,7 @@ class User(AbstractUser):
 ## Patient ##
 
 class Patient(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE,related_name='patient')
     profile_pic = models.ImageField(
         upload_to="profile_pic/PatientProfilePic/", null=True, blank=True
     )
@@ -48,7 +48,7 @@ class Patient(models.Model):
         return self.user.id
 
     def __str__(self):
-        return f"self.user.name"
+        return f"{self.user.name}"
 
 
 ## Nurse ##
@@ -89,7 +89,7 @@ class Nurse(models.Model):
         return self.user.id
 
     def __str__(self):
-        return f"{self.user}"
+        return f"{self.user.name}"
 
         # return self.user.first_name + " is a" + " (" + self.role + ")"
 
@@ -136,4 +136,4 @@ class Doctor(models.Model):
         return self.user.id
 
     def __str__(self):
-        return f"{self.user} - An {self.role} in {self.department} department"
+        return f"{self.user} - A/An {self.role} in {self.department} department"

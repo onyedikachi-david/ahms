@@ -9,6 +9,8 @@ from ahms.users import views
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
+    path("home", views.home, name="home"),
+
     path(
         "about/", TemplateView.as_view(template_name="pages/about.html"), name="about"
     ),
@@ -24,9 +26,15 @@ urlpatterns = [
     path('accounts/signup/patient/patient-profile-update',
          views.PatientProfileUpdate.as_view(),
          name='patient_profile_update'),
-    path('accounts/patient/patient-details',
-         views.PatientDetail.as_view(),
-         name="patient_detail")
+    # path('accounts/patient/patient-details',
+    #      views.PatientDetail.as_view(),
+    #      name="patient_detail"),
+    path('accounts/signup/patient/nurse-profile-update',
+         views.NurseProfileUpdate.as_view(),
+         name='patient_profile_update'),
+    path('accounts/signup/patient/doctor-profile-update',
+         views.DoctorProfileUpdate.as_view(),
+         name='patient_profile_update'),
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
