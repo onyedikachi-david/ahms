@@ -92,7 +92,7 @@ class Nurse(models.Model):
         return self.user.id
 
     def __str__(self):
-        return f"{self.user.name}"
+        return f"{self.user.username}"
 
         # return self.user.first_name + " is a" + " (" + self.role + ")"
 
