@@ -27,7 +27,7 @@ class User(AbstractUser):
         return reverse("users:detail", kwargs={"username": self.username})
     
     def __str__(self):
-        return f"{self.name}"
+        return f"{self.username}"
 
 
 ## Patient ##
@@ -51,7 +51,7 @@ class Patient(models.Model):
         return self.user.id
 
     def __str__(self):
-        return f"{self.user.name}"
+        return f"{self.user.username}"
 
 
 ## Nurse ##
