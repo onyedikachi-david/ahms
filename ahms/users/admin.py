@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 from ahms.users.forms import UserChangeForm, UserCreationForm
 from ahms.users.models import Patient
-from social.apps.django_app.default.models import Association, Nonce, UserSocialAuth
+# from social.apps.django_app.default.models import Association, Nonce, UserSocialAuth
 
 
 User = get_user_model()
@@ -73,6 +73,6 @@ class CustomUserAdmin(UserAdmin):
 admin.site.unregister(User)
 admin.site.register(User, CustomUserAdmin)
 
-admin.site.unregister(Association)
-admin.site.unregister(Nonce)
-admin.site.unregister(UserSocialAuth)
+# admin.site.unregister(Association)
+# admin.site.unregister(Nonce)
+# admin.site.unregister(UserSocialAuth)
