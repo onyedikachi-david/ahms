@@ -54,7 +54,7 @@ class Patient(models.Model):
         return f"{self.user.username}"
 
 
-## Nurse ##
+## Nurse Mode ##
 
 class Nurse(models.Model):
     class NurseRoles(TextChoices):
